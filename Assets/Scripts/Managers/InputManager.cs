@@ -85,6 +85,18 @@ public class InputManager : MonoBehaviour
             return Input.GetKey(KeyCode.A);
         }
     }
+
+    /// <summary>
+    /// Variable que determina si estas yendo de frente
+    /// </summary>
+    public bool TurningFront
+    {
+        get
+        {
+            return Input.GetKey(KeyCode.W);
+        }
+    }
+
     //-------------------PROPERTIES-------------------------
 
     //-------------------PRIVATE ATTRIBUTES-------------------------

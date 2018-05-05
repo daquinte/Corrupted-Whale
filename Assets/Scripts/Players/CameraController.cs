@@ -33,11 +33,17 @@ public class CameraController : MonoBehaviour {
     /// </summary>
     private void Move()
     {
-        Debug.Log("Me muevo xd");
-        Vector2 movCamara = InputManager.Instance.CameraInput;
-        transform.position += new Vector3(movCamara.x * Velocity, 0, movCamara.y * Velocity);
-    }
 
+        Vector2 movCamara = InputManager.Instance.CameraInput;
+
+        //Hago el calculo de la nueva posicion previamente. Si esta fuera a superar los bordes, entonces no nos movemos.
+        Vector3 nuevaPos = transform.position + new Vector3(movCamara.x * Velocity, 0, movCamara.y * Velocity);
+        //Con esto capamos la posicion que puede tener la x y la z
+        float x = Mathf.Clamp(nuevaPos.x, -23, 70);
+        float z = Mathf.Clamp(nuevaPos.z, -40, 72);
+
+        transform.position = new Vector3(x, 20, z);
+    }
     /// <summary>
     /// Comprueba si se ha pulsado la tecla de disprar y dispara en tal caso
     /// Instancia un pólipo en el centro de la cámara en el caso en que colisione con el suelo
@@ -52,7 +58,7 @@ public class CameraController : MonoBehaviour {
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.tag == "plane")
+                if (hit.transform.tag == "plane") //Esto luego será el fondo o algo así
                     Instantiate(PolypPrefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
 
             }

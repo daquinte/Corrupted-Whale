@@ -4,54 +4,83 @@ using UnityEngine;
 
 public class PolypController : MonoBehaviour {
 
-    bool corrupted;
+    //Esto está público para las pruebas, pero luego no debería serlo
+     public bool corrupted;
 
     public Material greenMaterial;
     public Material corruptedMaterial;
 
-    BoxCollider collider;
+    public ParticleSystem particles;
 
     Renderer rend;
 
     // Use this for initialization
     void Start () {
 
-        corrupted = false;
+        //corrupted = false;
 
         rend = GetComponent<Renderer>();
 
         rend.sharedMaterial = greenMaterial;
+
+        if (corrupted)
+        {
+            SetMaterial(corruptedMaterial);
+
+            this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
+        }
+        else
+        {
+            SetMaterial(greenMaterial);
+        }
 
     }
 	
 	// Update is called once per frame
 	void Update () {
 
+     
+		
+	}
+
+    public void SetCorrupted (bool isCorrupted)
+    {
+        corrupted = isCorrupted;
+
         if (corrupted)
         {
-            setMaterial(corruptedMaterial);
+            SetMaterial(corruptedMaterial);
 
             this.gameObject.GetComponent<BoxCollider>().isTrigger = false;
         }
         else
         {
-            setMaterial(greenMaterial);
-            this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            StartCoroutine("CorruptionTransition");
+            SetMaterial(greenMaterial);
         }
-		
-	}
-
-    public void setCorrupted (bool isCorrupted)
-    {
-        corrupted = isCorrupted;
     }
 
-    public bool getCorrupted()
+    IEnumerator CorruptionTransition()
+    {
+        Vector3 polypPosition = new Vector3(this.gameObject.transform.position.x, 0, this.gameObject.transform.position.z);
+
+        particles = Instantiate(particles, polypPosition, Quaternion.identity);
+        particles.Play();
+
+        yield return new WaitForSeconds(2);
+
+        this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+
+        particles.Stop();
+
+    }
+
+    public bool GetCorrupted()
     {
         return corrupted;
     }
 
-    void setMaterial(Material newMaterial)
+    void SetMaterial(Material newMaterial)
     {
         rend.sharedMaterial = newMaterial;
     }

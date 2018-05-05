@@ -58,21 +58,43 @@ public class PlayerController : MonoBehaviour {
             //Vamos a girarlo jaja
             if (InputManager.Instance.TurningRight)
             {
-                Debug.Log("Derecha");
-                m_EulerAngleVelocity = new Vector3(0, 100, 0);
+                //Debug.Log("Derecha");
+                m_EulerAngleVelocity = new Vector3(0, 200, 0);
 
                 Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-                rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
+
+                Debug.Log(this.gameObject.transform.rotation.y);
+
+                if (this.gameObject.transform.rotation.y <= 0.75)
+                    rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
             }
 
             else if (InputManager.Instance.TurningLeft)
             {
-                m_EulerAngleVelocity = new Vector3(0, -100, 0);
+                m_EulerAngleVelocity = new Vector3(0, -200, 0);
 
                 Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
-                rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
+
+                Debug.Log(this.gameObject.transform.rotation.y);
+
+                if (this.gameObject.transform.rotation.y >= -0.75)
+                    rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
             }
-            
+
+            else if (InputManager.Instance.TurningFront)
+            {
+                if (this.gameObject.transform.rotation.y < 0) m_EulerAngleVelocity = new Vector3(0, 200, 0);
+
+                else if (this.gameObject.transform.rotation.y > 0) m_EulerAngleVelocity = new Vector3(0, -200, 0);
+
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+
+                Debug.Log(this.gameObject.transform.rotation.y);
+
+                if (this.gameObject.transform.rotation.y != 0)
+                    rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
+            }
+
         }
 	}
 
@@ -105,6 +127,18 @@ public class PlayerController : MonoBehaviour {
     {
         state = PlayerState.MOVING;
 
+    }
+
+    private void OnCollisionEnter(Collision col)
+    {
+        Debug.Log("Este polipo me ha tocado :/");
+
+        Debug.Log(col.gameObject.tag);
+
+        if (col.gameObject.tag == "Polyp" && col.gameObject.GetComponent<PolypController>().GetCorrupted())
+        {
+            col.gameObject.GetComponent<PolypController>().SetCorrupted(false);
+        }
     }
 
 }
