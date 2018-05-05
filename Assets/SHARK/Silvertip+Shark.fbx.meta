@@ -59,7 +59,6 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: Armature|Sharkswim
@@ -257,9 +256,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-=======
-    clipAnimations: []
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -113,7 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
-<<<<<<< HEAD
 --- !u!1001 &88070374
 Prefab:
   m_ObjectHideFlags: 0
@@ -160,8 +159,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 479b925b7c1018e45a0eab096489069a, type: 3}
   m_IsPrefabParent: 0
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
 --- !u!1 &186375697
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,11 +223,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 6
-=======
-  m_RootOrder: 7
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!45 &186375700
 Skybox:
@@ -303,11 +296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 3
-=======
-  m_RootOrder: 4
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalEulerAnglesHint: {x: 43.3, y: 117.2, z: 0}
 --- !u!1001 &352915344
 Prefab:
@@ -364,13 +353,10 @@ Prefab:
       propertyPath: m_Name
       value: Grass (1)
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1654076912766160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
   m_IsPrefabParent: 0
@@ -388,11 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
   m_IsActive: 0
-=======
-  m_IsActive: 1
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
 --- !u!4 &429300197
 Transform:
   m_ObjectHideFlags: 0
@@ -408,11 +390,7 @@ Transform:
   - {fileID: 819789334}
   - {fileID: 1825545192}
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 1
-=======
-  m_RootOrder: 2
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &607257558
 Prefab:
@@ -637,13 +615,10 @@ Prefab:
       propertyPath: m_Name
       value: Grass (2)
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1654076912766160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
   m_IsPrefabParent: 0
@@ -733,22 +708,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 720981492}
-<<<<<<< HEAD
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-=======
-  m_LocalRotation: {x: 0.6956012, y: -0.12703933, z: 0.12703933, w: 0.6956012}
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalPosition: {x: 25.1, y: 395.4, z: 3.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
-=======
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 90, y: -20.7, z: 0}
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
 --- !u!114 &720981498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +759,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd6d4281e5d7cd44d8c6e38bc2c1b8d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
 --- !u!1 &752268191
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,8 +800,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
 --- !u!1 &808766253
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,11 +863,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< HEAD
   m_RootOrder: 4
-=======
-  m_RootOrder: 5
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalEulerAnglesHint: {x: 43.3, y: -111.9, z: 0}
 --- !u!1 &819789333
 GameObject:
@@ -1050,21 +1009,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873322982}
-<<<<<<< HEAD
   m_LocalRotation: {x: 0.69560117, y: 0.12703949, z: 0.12703949, w: -0.69560117}
   m_LocalPosition: {x: 25.1, y: -396.06, z: 3.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-=======
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 7.5, y: -206.16, z: -11.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!45 &873322985
 Skybox:
@@ -1129,13 +1079,10 @@ Prefab:
       propertyPath: m_Name
       value: Grass (3)
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1654076912766160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
   m_IsPrefabParent: 0
@@ -1180,16 +1127,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1939477270973900, guid: bc4f23d04e42f4b559542ad840db6530, type: 2}
       propertyPath: m_IsActive
-<<<<<<< HEAD
       value: 0
-=======
-      value: 1
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc4f23d04e42f4b559542ad840db6530, type: 2}
   m_IsPrefabParent: 0
-<<<<<<< HEAD
 --- !u!1 &1410539219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,8 +1214,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
 --- !u!1001 &1738316852
 Prefab:
   m_ObjectHideFlags: 0
@@ -1311,11 +1251,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4060926397692160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
       value: 7
-=======
-      value: 1
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
       objectReference: {fileID: 0}
     - target: {fileID: 4060926397692160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_LocalScale.x
@@ -1329,13 +1265,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 0.33796814
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 1654076912766160, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e7e45f038371fe42997bbfefb310027, type: 2}
   m_IsPrefabParent: 0
@@ -1425,7 +1358,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1825545191}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
 --- !u!1 &1885940506
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,5 +1399,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 5808be28a0bd16a0ca0ede3ae1faf62d0ea32b83
