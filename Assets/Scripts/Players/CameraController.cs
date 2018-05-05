@@ -33,6 +33,7 @@ public class CameraController : MonoBehaviour {
     /// </summary>
     private void Move()
     {
+        Debug.Log("Me muevo xd");
         Vector2 movCamara = InputManager.Instance.CameraInput;
         transform.position += new Vector3(movCamara.x * Velocity, 0, movCamara.y * Velocity);
     }
