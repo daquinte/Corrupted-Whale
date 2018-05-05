@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         {
             currentPolyp = other.gameObject;
             state = PlayerState.HIDING;
-            transform.DOMove(other.gameObject.transform.position - new Vector3 (0.0f,0.0f,0.0f),2.0f).SetEase(Ease.OutQuint).onComplete+= OnEndHiding;
+            transform.DOMove(other.gameObject.transform.position + new Vector3 (0.0f,1.0f,0.0f),2.0f).SetEase(Ease.OutQuint).onComplete+= OnEndHiding;
         }
     }
 
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour {
     {
         Destroy(currentPolyp);
         state = PlayerState.HIDE;
-        transform.DOMove(this.transform.position + new Vector3 (0.0f,2.0f,0.0f), 1.0f).SetEase(Ease.OutQuint).onComplete+=OnEndHide;
+        transform.DOMove(this.transform.position + new Vector3 (0.0f,1.0f,0.0f), 1.0f).SetEase(Ease.OutQuint).onComplete+=OnEndHide;
 
     }
 
