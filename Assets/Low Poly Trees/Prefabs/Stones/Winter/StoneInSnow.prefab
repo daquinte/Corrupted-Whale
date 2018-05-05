@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000010820269688}
   - component: {fileID: 33000010938915924}
   - component: {fileID: 23000011125341392}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StoneInSnow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,9 +34,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013739065638}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 441.84683, y: 43.14444, z: 327.2046}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -26.171757, y: 26.122108, z: 10.352085}
+  m_LocalScale: {x: 10, y: 18.223219, z: 10}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
