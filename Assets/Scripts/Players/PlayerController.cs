@@ -35,7 +35,12 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private GameObject currentPolyp;
 
-	void Start () {
+    /// <summary>
+    /// Vector de rotacion
+    /// </summary>
+    private Vector3 m_EulerAngleVelocity;
+
+    void Start () {
         rigidbodyComp = GetComponent<Rigidbody>();
         state = PlayerState.MOVING;
 	}
@@ -48,6 +53,26 @@ public class PlayerController : MonoBehaviour {
             Vector3 Mov = new Vector3(getMov.x, 0, getMov.y) * speed * Time.deltaTime;
 
             rigidbodyComp.MovePosition(transform.position + Mov);
+
+
+            //Vamos a girarlo jaja
+            if (InputManager.Instance.TurningRight)
+            {
+                Debug.Log("Derecha");
+                m_EulerAngleVelocity = new Vector3(0, 100, 0);
+
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
+            }
+
+            else if (InputManager.Instance.TurningLeft)
+            {
+                m_EulerAngleVelocity = new Vector3(0, -100, 0);
+
+                Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.deltaTime);
+                rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
+            }
+            
         }
 	}
 

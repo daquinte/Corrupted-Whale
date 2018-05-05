@@ -63,6 +63,28 @@ public class InputManager : MonoBehaviour
             fire = value;
         }
     }
+
+    /// <summary>
+    /// Variable que determina si estas yendo a la derecha
+    /// </summary>
+    public bool TurningRight
+    {
+        get
+        {
+            return Input.GetKey(KeyCode.D);
+        }
+    }
+
+    /// <summary>
+    /// Variable que determina si estas yendo a la izquierda
+    /// </summary>
+    public bool TurningLeft
+    {
+        get
+        {
+            return Input.GetKey(KeyCode.A);
+        }
+    }
     //-------------------PROPERTIES-------------------------
 
     //-------------------PRIVATE ATTRIBUTES-------------------------
