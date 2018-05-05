@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (state == PlayerState.MOVING)
+        /*if (state == PlayerState.MOVING)
         {
             //Tomamos el control del input
             Vector2 getMov = InputManager.Instance.MoveInput;
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour {
                     rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
             }
 
-        }
+        }*/
 	}
 
     /// <summary>
