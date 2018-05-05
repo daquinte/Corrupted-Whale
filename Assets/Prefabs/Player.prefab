@@ -22,12 +22,10 @@ GameObject:
   - component: {fileID: 33340379216717456}
   - component: {fileID: 23271164368303700}
   - component: {fileID: 65043338570887284}
-  - component: {fileID: 114154864611568454}
-  - component: {fileID: 114272252103555098}
-  - component: {fileID: 114626409461292166}
   - component: {fileID: 54155361443772090}
+  - component: {fileID: 114154864611568454}
   m_Layer: 0
-  m_Name: Pez
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,25 +125,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
---- !u!114 &114272252103555098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590053952930890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8668be0546ab4429053a680e09e16f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114626409461292166
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1590053952930890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc52305bdacdae146ac4e33bed15454b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
