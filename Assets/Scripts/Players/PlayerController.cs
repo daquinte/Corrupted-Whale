@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour {
 
         }
 
-        Debug.Log(state);
+
 	}
 
     /// <summary>
@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour {
     {
         Destroy(currentPolyp);
         state = PlayerState.HIDE;
-        transform.DOMove(this.transform.position + new Vector3 (0.0f,1.0f,0.0f), 1.0f).SetEase(Ease.OutQuint).onComplete+=OnEndHide;
+        transform.DOMove(this.transform.position + new Vector3 (0.0f,1.5f,0.0f), 1.0f).SetEase(Ease.OutQuint).onComplete+=OnEndHide;
 
     }
 
@@ -135,8 +135,7 @@ public class PlayerController : MonoBehaviour {
 
     private void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Este polipo me ha tocado :/");
-
+     
         Debug.Log(col.gameObject.tag);
 
         if (col.gameObject.tag == "Polyp" && col.gameObject.GetComponent<PolypController>().GetCorrupted())

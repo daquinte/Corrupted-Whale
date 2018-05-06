@@ -9,6 +9,11 @@ TagManager:
   - Polyp
   - waypointAbajo
   - shark
+  - Navmesh
+  - roca
+  - costa
+  - hierba
+  - Spawn
   layers:
   - Default
   - TransparentFX

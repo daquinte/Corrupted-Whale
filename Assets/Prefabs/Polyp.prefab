@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617201935018550}
   m_LocalRotation: {x: 6.617444e-24, y: 1, z: 0.000000119209275, w: -6.123234e-17}
-  m_LocalPosition: {x: -2.33, y: -0.18, z: 0.51}
-  m_LocalScale: {x: 0.1, y: 0.3, z: 0.1}
+  m_LocalPosition: {x: 57.177773, y: -5.402092, z: 51.28}
+  m_LocalScale: {x: 0.25, y: 0.8, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,5 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff95116a55af59f4fb6124ea5f40570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corrupted: 0
   greenMaterial: {fileID: 2100000, guid: e57e301da0dd7334784c5adbc65da65e, type: 2}
   corruptedMaterial: {fileID: 2100000, guid: 6a70c17bb2d51ef46adedf7d51d71e21, type: 2}
+  particles: {fileID: 198714930553468470, guid: 5c593e0e83549c3429a3716cf335ab7a,
+    type: 2}

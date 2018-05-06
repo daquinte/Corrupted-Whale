@@ -73,6 +73,8 @@ public class PolypController : MonoBehaviour {
 
         particles.Stop();
 
+        GameManager.Instance.QuitaCorrupto(this.gameObject);   //Informa al GameObject de que este gameobject ha muerto
+
     }
 
     public bool GetCorrupted()

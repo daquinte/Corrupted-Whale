@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 /// <summary>
 /// Controla el flujo del juego
@@ -11,6 +14,29 @@ public class GameManager : MonoBehaviour
     /// Singleton
     /// </summary>
     public static GameManager Instance;
+    /// <summary>
+    /// Cámara principal del juego
+    /// </summary>
+    public Camera cam;
+    /// <summary>
+    /// Prefab del polipo
+    /// </summary>
+    public GameObject polipo;
+
+    /// <summary>
+    /// Mide de forma gráfica lo jodido que estas
+    /// </summary>
+    public Image medidorCorrupcion;
+    
+    /// <summary>
+    /// Máximo número de corrupción a liberar para ganar. Público para poder decidir más facilmente el valor
+    /// </summary>
+    public int salvadosMax;
+
+    /// <summary>
+    /// Máximo número de corrupción a liberar para ganar. Público para poder decidir más facilmente el valor
+    /// </summary>
+    public int corruptosMax;
 
     //-------------------INSPECTOR-------------------------
     /// <summary>
@@ -25,9 +51,12 @@ public class GameManager : MonoBehaviour
     public GameObject CorruptionPrefab;
 
     //-------------------INSPECTOR-------------------------
-    //-------------------PROPERTIES-------------------------
 
-    //-------------------PROPERTIES-------------------------
+    //LA LISTA DE MOVIDAS CORRUPTAS
+    /// <summary>
+    /// Aquí se guarda la lista de polipos corruptos que hay en escena
+    /// </summary>
+    List<GameObject> listaCorruptos;
 
     //-------------------PRIVATE ATTRIBUTES-------------------------
 
@@ -40,6 +69,11 @@ public class GameManager : MonoBehaviour
     /// Si es true, la partida ha terminado
     /// </summary>
     private bool gameFinish;
+
+    /// <summary>
+    /// Cantidad de corrupción liberada
+    /// </summary>
+    private int corrupcionEliminada = 0;
     //-------------------PRIVATE ATTRIBUTES-------------------------
 
     private void Awake()
@@ -49,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        listaCorruptos = new List<GameObject>();
         StartCoroutine(Corruption());
     }
 
@@ -64,7 +99,101 @@ public class GameManager : MonoBehaviour
                 gameFinish = true;
 
             yield return new WaitForSeconds(3);
+
+            //Y crea la corrupción
+            CreaCorrupto();
+
+            int elegido = Random.Range(0, listaCorruptos.Count);
+
+            listaCorruptos[elegido].GetComponent<PolypController>().SetCorrupted(true); // You are blue now
         }
-        //Y crea las bolas :3
     }
+
+    private void Update()
+    {
+
+        if (!gameFinish) {
+            if(Random.Range(0, 50) == 50)      //10% de probabilidad de generar polipo
+                CreaCorrupto();
+
+            if (corrupcionEliminada == salvadosMax) SceneManager.LoadScene("Win");
+
+            if (corruption == corruptosMax) SceneManager.LoadScene("GameOver");
+
+            int elegido = Random.Range(0, listaCorruptos.Count);
+
+            listaCorruptos[elegido].GetComponent<PolypController>().SetCorrupted(true); // You are blue now
+
+            medidorCorrupcion.fillAmount += corruption/100; //100 = 1
+        }
+    }
+
+    public void CreaCorrupto()
+    {
+
+        // Dimensiones del mapa
+        int x = Random.Range(-61, 69);
+        int z = Random.Range(23, 40);
+        Vector3 spawn = new Vector3(x, -5, z);
+
+        // Script del tiburon para comprobar si puede acceder al punto del navmesh
+        // lo usamos para comprobar si podemos spawnear un polipo
+        Ray ray = cam.ScreenPointToRay(spawn);
+
+        RaycastHit hit;
+        Debug.Log(Physics.Raycast(ray, out hit));
+        if (Physics.Raycast(ray, out hit))
+        {
+            if(hit.collider.tag == "Spawn")
+            {
+                GameObject polyp;
+
+                polyp = Instantiate(polipo, spawn, Quaternion.identity);
+
+                polyp.GetComponent<PolypController>().SetCorrupted(true);
+
+                listaCorruptos.Add(polyp);
+
+                SumaCorruption();
+            }
+        }
+    }
+
+
+    public void QuitaCorrupto(GameObject obj)
+    {
+
+        bool stop = false;
+        int i = 0;
+        while (!stop && i < listaCorruptos.Count)
+        {
+            if (listaCorruptos[i] == obj)
+            {
+                stop = true;
+            }
+
+            i++;
+        }
+
+        listaCorruptos.Remove(listaCorruptos[i]);
+        //Aumenta los salvados y la corrupción disminuye
+        corruption--;
+        SumaSalvados();
+
+    }
+
+    public void SumaCorruption()
+    {
+        if (corruption < corruptosMax)
+            corruption++;
+    }
+
+    public void SumaSalvados()
+    {
+        corrupcionEliminada++;
+    }
+
+
 }
+
+
