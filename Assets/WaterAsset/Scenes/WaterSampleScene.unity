@@ -1223,8 +1223,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 186375697}
-  m_LocalRotation: {x: 0.43350172, y: 0.10689344, z: 0.051874224, w: -0.89328563}
-  m_LocalPosition: {x: 36.589092, y: -82.13513, z: -80.30397}
+  m_LocalRotation: {x: -0.6427877, y: 0, z: 0, w: 0.7660444}
+  m_LocalPosition: {x: -6.2, y: -19.66, z: -5.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4775,7 +4775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f61af66fb5d1cb49b96d838710f8827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Velocity: 0.2
+  Velocity: 0.4
   PolypPrefab: {fileID: 1617201935018550, guid: 7f1dc1ad4905fb94db964d71a05e394c,
     type: 2}
 --- !u!1001 &726598636
@@ -5769,6 +5769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0238b5e426b9522429109fdadfbd5770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Muerto: 0
   cam: {fileID: 720981496}
   polipo: {fileID: 1617201935018550, guid: 7f1dc1ad4905fb94db964d71a05e394c, type: 2}
   medidorCorrupcion: {fileID: 1636481432}
@@ -6829,7 +6830,7 @@ Prefab:
     - target: {fileID: 54180666895297210, guid: d3865d1fb927cb64182b902f47d7e218,
         type: 2}
       propertyPath: m_Constraints
-      value: 4
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 4626354110174848, guid: d3865d1fb927cb64182b902f47d7e218, type: 2}
       propertyPath: m_LocalScale.x
