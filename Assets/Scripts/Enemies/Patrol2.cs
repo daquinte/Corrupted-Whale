@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Patrol2 : StateMachineBehaviour {
+public class Patrol2 : NPCBaseFSM
+{
 
-    GameObject NPC;
+   
     GameObject[] waypoints;
     int currentWP;
-
-     Animation slowSwim;
 
     void Awake()
     {
@@ -19,9 +18,8 @@ public class Patrol2 : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-        
-        
-        NPC = animator.gameObject;
+
+        base.OnStateEnter(animator, stateInfo, layerIndex);
         currentWP = 0;
     }
 

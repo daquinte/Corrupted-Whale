@@ -8,6 +8,7 @@ TagManager:
   - plane
   - Polyp
   - waypointAbajo
+  - shark
   layers:
   - Default
   - TransparentFX

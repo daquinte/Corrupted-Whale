@@ -14,6 +14,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: distancia
+    m_Type: 1
+    m_DefaultFloat: 100
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -49,6 +55,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4792834e504e7e48a4eeefa092a1376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NPC: {fileID: 100016, guid: 479b925b7c1018e45a0eab096489069a, type: 3}
+  opponent: {fileID: 1626492958745358, guid: d3865d1fb927cb64182b902f47d7e218, type: 2}
+  speed: 7
+  rotSpeed: 2.8
+  accuary: 3
 --- !u!114 &114861428649087456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -60,8 +71,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91399706ad4996c45865b96a815f2b36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  RotationSpeed: 5
+  MoveSpeed: 13
+  RotationSpeed: 10
 --- !u!1101 &1101096903226146488
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -69,9 +80,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: patrulla
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: ataque
-    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: distancia
+    m_EventTreshold: 20
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102169600434225820}
   m_Solo: 0
@@ -93,9 +104,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: Atacando
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: ataque
-    m_EventTreshold: 0
+  - m_ConditionMode: 4
+    m_ConditionEvent: distancia
+    m_EventTreshold: 20
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102187933998153332}
   m_Solo: 0
@@ -143,7 +154,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New State
+  m_Name: Ataque
   m_Speed: 3
   m_CycleOffset: 0
   m_Transitions:

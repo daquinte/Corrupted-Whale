@@ -13,7 +13,7 @@ public class Attack : StateMachineBehaviour
     // <summary>
     /// Puntero al jugador dinámico
     /// </summary>
-    private PlayerController PlayerFish;
+    private GameObject PlayerFish;
 
     private GameObject NPC;         //El tiburón
     Animation slowSwim;             //Animacion
@@ -28,27 +28,30 @@ public class Attack : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
+        Debug.Log("HOLA ACABO DE ENTRAR EN EL ATAQUE");
         NPC = animator.gameObject;
-        PlayerFish = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        PlayerFish = GameObject.FindGameObjectWithTag("Player");
         anim = animator;
         rigidbodyComp = NPC.GetComponent<Rigidbody>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (PlayerFish.PlayerState == PlayerState.MOVING)
+        
+        if (PlayerFish.GetComponent<PlayerController>().PlayerState == PlayerState.MOVING)
         {
-            //rotate to look at the player
-            rigidbodyComp.MoveRotation(Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(PlayerFish.transform.position - NPC.transform.position), RotationSpeed * Time.deltaTime));
-            //move towards the player
-            float step = Time.deltaTime * MoveSpeed;    //Tiempo del Step(tick)
-            rigidbodyComp.MovePosition(NPC.transform.position + NPC.transform.forward * step);
+            /* //rotate to look at the player
+             rigidbodyComp.MoveRotation(Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(PlayerFish.transform.position - NPC.transform.position), RotationSpeed * Time.deltaTime));
+             //move towards the player
+             float step = Time.deltaTime * MoveSpeed;    //Tiempo del Step(tick)
+             rigidbodyComp.MovePosition(NPC.transform.position + NPC.transform.forward * step);*/
+
+            Vector3 direccion = PlayerFish.transform.position - NPC.transform.position;
+            NPC.transform.rotation = Quaternion.Slerp(NPC.transform.rotation, Quaternion.LookRotation(direccion), RotationSpeed * Time.deltaTime);
+            NPC.transform.Translate(0, 0, Time.deltaTime * MoveSpeed);
         }
-        //Está o escondido o muerto. Pasamosa la patrulla
-        else {
-            anim.SetBool("ataque", false);
-        }
+
+      
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
@@ -59,8 +62,8 @@ public class Attack : StateMachineBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        Debug.Log("Me estoy chocando con" + col.gameObject.name);
+        Debug.Log("Me estoy chocando con" + col.gameObject.name);   
         if (col.gameObject == PlayerFish.gameObject)
-            PlayerFish.PlayerState = PlayerState.DEATH;
+            PlayerFish.GetComponent<PlayerController>().PlayerState = PlayerState.DEATH;
     }
 }

@@ -16,8 +16,13 @@ public class CameraController : MonoBehaviour {
 
     private Camera cameraComponent;
 
+    private GameObject pez;
+
     void Awake () {
         cameraComponent = GetComponent<Camera>();
+        pez = GameObject.FindGameObjectWithTag("Player");
+
+        transform.position = pez.transform.position;
 	}
 
     // Update is called once per frame

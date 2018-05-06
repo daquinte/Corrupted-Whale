@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-        /*if (state == PlayerState.MOVING)
+        if (state == PlayerState.MOVING)
         {
             //Tomamos el control del input
             Vector2 getMov = InputManager.Instance.MoveInput;
@@ -95,7 +95,9 @@ public class PlayerController : MonoBehaviour {
                     rigidbodyComp.MoveRotation(rigidbodyComp.rotation * deltaRotation);
             }
 
-        }*/
+        }
+
+        Debug.Log(state);
 	}
 
     /// <summary>
@@ -110,6 +112,8 @@ public class PlayerController : MonoBehaviour {
             state = PlayerState.HIDING;
             transform.DOMove(other.gameObject.transform.position + new Vector3 (0.0f,1.0f,0.0f),2.0f).SetEase(Ease.OutQuint).onComplete+= OnEndHiding;
         }
+
+        else if(other.tag == "shark") state = PlayerState.DEATH;
     }
 
     /// <summary>
