@@ -10,6 +10,9 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+
+    public bool Muerto = false;
+
     /// <summary>
     /// Singleton
     /// </summary>
@@ -118,7 +121,8 @@ public class GameManager : MonoBehaviour
 
             if (corrupcionEliminada == salvadosMax) SceneManager.LoadScene("Win");
 
-            if (corruption == corruptosMax) SceneManager.LoadScene("GameOver");
+
+            if (Muerto && corruption == corruptosMax) SceneManager.LoadScene("GameOver");
 
             int elegido = Random.Range(0, listaCorruptos.Count);
 
@@ -193,7 +197,11 @@ public class GameManager : MonoBehaviour
         corrupcionEliminada++;
     }
 
-
+    public void setMuerto()
+    {
+        Muerto = true;
+        SceneManager.LoadScene("GameOver");
+    }
 }
 
 

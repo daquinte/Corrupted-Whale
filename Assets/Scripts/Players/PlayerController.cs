@@ -13,8 +13,7 @@ public class PlayerController : MonoBehaviour {
 
 
     public PlayerState PlayerState { get { return state; } set { state = value; } }
-
-
+    
     /// <summary>
     /// Velocidad de movimiento del personaje
     /// </summary>
@@ -110,10 +109,10 @@ public class PlayerController : MonoBehaviour {
         {
             currentPolyp = other.gameObject;
             state = PlayerState.HIDING;
-            transform.DOMove(other.gameObject.transform.position + new Vector3 (0.0f,1.0f,0.0f),2.0f).SetEase(Ease.OutQuint).onComplete+= OnEndHiding;
+            transform.DOMove(other.gameObject.transform.position + new Vector3(0.0f, 1.0f, 0.0f), 2.0f).SetEase(Ease.OutQuint).onComplete += OnEndHiding;
         }
 
-        else if(other.tag == "shark") state = PlayerState.DEATH;
+        else if (other.tag == "shark") { state = PlayerState.DEATH; GameManager.Instance.setMuerto(); }
     }
 
     /// <summary>

@@ -64,7 +64,7 @@ public class CameraController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.tag == "Spawn") //Esto luego será el fondo o algo así
-                    Instantiate(PolypPrefab, new Vector3(hit.point.x, hit.point.y, hit.point.z), Quaternion.identity);
+                    Instantiate(PolypPrefab, new Vector3(hit.point.x, hit.point.y - 4, hit.point.z), Quaternion.identity);
 
             }
 
