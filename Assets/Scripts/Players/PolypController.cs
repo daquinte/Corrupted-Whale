@@ -35,6 +35,11 @@ public class PolypController : MonoBehaviour {
         }
 
     }
+    
+    public void Init()
+    {
+        Start();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -67,13 +72,16 @@ public class PolypController : MonoBehaviour {
         particles = Instantiate(particles, polypPosition, Quaternion.identity);
         particles.Play();
 
-        yield return new WaitForSeconds(2);
+        GameManager.Instance.QuitaCorrupto(this.gameObject);   //Informa al GameObject de que este gameobject ha muerto
+
+        yield return new WaitForSeconds(0.5f);
 
         this.gameObject.GetComponent<BoxCollider>().isTrigger = true;
-
+        //TODO: Comprobar por qué los polipos creados por Space no borran particulas
+        //->Se corrompen mientras se destruye lmao
         particles.Stop();
-
-        GameManager.Instance.QuitaCorrupto(this.gameObject);   //Informa al GameObject de que este gameobject ha muerto
+        corrupted = false;
+       
 
     }
 
@@ -84,7 +92,7 @@ public class PolypController : MonoBehaviour {
 
     void SetMaterial(Material newMaterial)
     {
-        rend.sharedMaterial = newMaterial;
+       rend.sharedMaterial = newMaterial;
     }
 
 

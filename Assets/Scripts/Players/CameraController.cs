@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour {
     /// Prefab del pólipo
     /// </summary>
     public GameObject PolypPrefab;
+    GameObject polypAux;
+
 
     private Camera cameraComponent;
 
@@ -64,7 +66,11 @@ public class CameraController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.transform.tag == "Spawn") //Esto luego será el fondo o algo así
-                    Instantiate(PolypPrefab, new Vector3(hit.point.x, hit.point.y - 4, hit.point.z), Quaternion.identity);
+                   
+                polypAux = Instantiate(PolypPrefab, new Vector3(hit.point.x, hit.point.y - 4, hit.point.z), Quaternion.identity);
+                GameManager.Instance.MetePolipo(polypAux);
+
+
 
             }
 

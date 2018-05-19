@@ -1,0 +1,26 @@
+DESCRIPCION:
+
+Una ballena del espacio exterior ha contaminado la cala en la que tú, un pequeño pez, vives. 
+Todo el ecosistema se ha visto afectado por la corrupción, los tiburones campan a sus anchas.
+
+Pero tú, un pequeño pez, puedes hacer un impacto enorme: ¡Ayuda a mantener limpia la cala comiendote la corrupción! 
+Un jugador controla a nuestro pequeño pez para ayudar a limpiar la cala de pólipos corruptos, mientras que otro jugador
+controlará al enorme entorno y situará pólipos sanos donde te puedes esconder de los terribles tiburones. 
+¡Pero cuidado! ¡Los pólipos sanos se pueden corromper en cualquier momento!
+
+¿Conseguiras mantener la simbiosis en tu pequeño hogar?
+
+
+JUGADORES: 2
+
+CONTROLES JUGADOR 1: PEZ
+
+W, A, S, D = Movimiento
+
+¡Entra en un pólipo corrupto para limpiarlo!
+
+CONTROLES JUGADOR 2: Entorno
+
+Ratón = Control de la cámara. (¡No pierdas de vista al pez!)
+
+Espacio= Colocar pólipo sano.

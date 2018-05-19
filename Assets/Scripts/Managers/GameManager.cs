@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// Aquí se guarda la lista de polipos corruptos que hay en escena
     /// </summary>
-    List<GameObject> listaCorruptos;
+    List<GameObject> listaPolipos;
 
     //-------------------PRIVATE ATTRIBUTES-------------------------
 
@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private int corrupcionEliminada = 0;
     //-------------------PRIVATE ATTRIBUTES-------------------------
+    int elegido;    //Polipo elegido para corromperse
 
     private void Awake()
     {
@@ -86,49 +87,44 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        listaCorruptos = new List<GameObject>();
-        StartCoroutine(Corruption());
+        listaPolipos = new List<GameObject>();
+
     }
 
     /// <summary>
     /// Corrutina que cada 'x' segundos instancia corrupción en algún punto de los pólipos
     /// </summary>
     /// <returns></returns>
-    IEnumerator Corruption()
-    {
-        while (!gameFinish)
-        {
-            if (corruption == 100)
-                gameFinish = true;
-
-            yield return new WaitForSeconds(3);
-
-            //Y crea la corrupción
-            CreaCorrupto();
-
-            int elegido = Random.Range(0, listaCorruptos.Count);
-
-            listaCorruptos[elegido].GetComponent<PolypController>().SetCorrupted(true); // You are blue now
-        }
-    }
-
+   
     private void Update()
     {
+        if (corruption == 100)
+            gameFinish = true;
 
         if (!gameFinish) {
-            if(Random.Range(0, 50) == 50)      //10% de probabilidad de generar polipo
-                CreaCorrupto();
+            //10% de probabilidad de generar polipo
+            if (Random.Range(0, 70) == 40)
+            {      
+                CreaCorrupto();                                                                 //Toma pólipo, puta
+               
+            }
+            //20% de probabiidad de hacer un polipo actual corrupto
+            if (Random.Range(0,40) == 10 && listaPolipos.Count != 0 )
+            {
+                elegido = Random.Range(0, listaPolipos.Count);                                //Elegimos uno
+                //Pregunto si ya está corrupto
+                if (!listaPolipos[elegido].GetComponent<PolypController>().corrupted)
+                {
+                    listaPolipos[elegido].GetComponent<PolypController>().SetCorrupted(true);     // You are blue now
+                    medidorCorrupcion.fillAmount += corruption / 100; //100 = 1                     //Actualizo el medidor
+                }
+            }
 
+            //CONDICIONES DE FIN DE PARTIDA: Lo que llegue antes
             if (corrupcionEliminada == salvadosMax) SceneManager.LoadScene("Win");
 
-
-            if (Muerto && corruption == corruptosMax) SceneManager.LoadScene("GameOver");
-
-            int elegido = Random.Range(0, listaCorruptos.Count);
-
-            listaCorruptos[elegido].GetComponent<PolypController>().SetCorrupted(true); // You are blue now
-
-            medidorCorrupcion.fillAmount += corruption/100; //100 = 1
+            if (Muerto || corruption == corruptosMax) SceneManager.LoadScene("GameOver");
+            
         }
     }
 
@@ -154,24 +150,32 @@ public class GameManager : MonoBehaviour
 
                 polyp = Instantiate(polipo, spawn, Quaternion.identity);
 
+                polyp.GetComponent<PolypController>().Init();
                 polyp.GetComponent<PolypController>().SetCorrupted(true);
 
-                listaCorruptos.Add(polyp);
+                listaPolipos.Add(polyp);
 
                 SumaCorruption();
             }
         }
     }
-
+    /// <summary>
+    /// Mete un pólipo, normalmente sano, en la lista
+    /// </summary>
+    /// <param name="polipo"></param>
+    public void MetePolipo(GameObject polipo)
+    {
+        listaPolipos.Add(polipo);
+    }
 
     public void QuitaCorrupto(GameObject obj)
     {
 
         bool stop = false;
         int i = 0;
-        while (!stop && i < listaCorruptos.Count)
+        while (!stop && i < listaPolipos.Count)
         {
-            if (listaCorruptos[i] == obj)
+            if (listaPolipos[i] == obj)
             {
                 stop = true;
             }
@@ -179,7 +183,7 @@ public class GameManager : MonoBehaviour
             i++;
         }
 
-        listaCorruptos.Remove(listaCorruptos[i]);
+        listaPolipos.Remove(listaPolipos[i]);
         //Aumenta los salvados y la corrupción disminuye
         corruption--;
         SumaSalvados();
