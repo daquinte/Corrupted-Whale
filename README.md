@@ -26,10 +26,10 @@ controlará al enorme entorno y situará pólipos sanos donde te puedes esconder
  - S: Abajo
  - A: Izquierda
  - D: Derecha
-*Esconderse = Entrar en un pólipo sano.
-*¡Toca un pólipo corrupto para limpiarlo!
+- Esconderse = Entrar en un pólipo sano.
+  ¡Toca un pólipo corrupto para limpiarlo!
 
 **CONTROLES JUGADOR 2: ENTORNO**
 
-*Control de la cámara: Ratón (¡No pierdas de vista al pez!)
-*Crear un pólipo sano: Espacio
+- Control de la cámara: Mover el ratón por los bordes de la pantalla (¡No pierdas de vista al pez!)
+- Crear un pólipo sano: Click izquierdo
