@@ -20,6 +20,7 @@ controlará al enorme entorno y situará pólipos sanos donde te puedes esconder
 **JUGADORES: 2**
 
 **CONTROLES JUGADOR 1: PEZ**
+
 *Movimiento:
  - W: Arriba
  - S: Abajo
@@ -29,5 +30,6 @@ controlará al enorme entorno y situará pólipos sanos donde te puedes esconder
 *¡Toca un pólipo corrupto para limpiarlo!
 
 **CONTROLES JUGADOR 2: ENTORNO**
+
 *Control de la cámara: Ratón (¡No pierdas de vista al pez!)
 *Crear un pólipo sano: Espacio
